@@ -7,7 +7,4 @@ feature 'Attack' do
     expect(page).to have_content "Andrew: Bitch!"
     expect(page).to have_content "Andrew: 50/60"
   end
-
-
-
-end 
+end
