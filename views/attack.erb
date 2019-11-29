@@ -1,15 +1,17 @@
-<h2>Welcome <%=@player_1%> and <%=@player_2%>!</h2>
+<h2>Welcome <%=@game.player_1.name%> and <%=@game.player_2.name%>!</h2>
 
 <body>
-<%=@player_1%>: <%=@player_1_hp%>/60 HP
+<%=@game.player_1.name%>: <%=@game.player_1.hp%>/<%=Player::DEFAULT_HIT_POINTS%> HP
 <br>
-<%=@player_2%>: <%=@player_2_hp%>/60 HP
+<%=@game.player_2.name%>: <%=@game.player_2.hp%>/<%=Player::DEFAULT_HIT_POINTS%> HP
 <br>
 <br>
-Action: <%=@player_1%> attacks <%=@player_2%>!
+<%=@game.player_1.name%> attacks <%=@game.player_2.name%>!
 <br>
-Response: <%=@player_2%>: Bitch!
+<%=@game.player_2.name%>: "Bitch!"
+
 <form action='/attack' method='get'>
 <div><input type='submit' value ='Attack'></div>
 </form>
+
 </body>
