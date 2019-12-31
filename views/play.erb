@@ -1,9 +1,9 @@
 <h2>Welcome <%=$game.player_1.name%> and <%=$game.player_2.name%>!</h2>
 
 <body>
-<%=$game.player_1.name%>: <%=$game.player_1.hp%>/<%=Player::DEFAULT_HIT_POINTS%> HP
-<br>
-<%=$game.player_2.name%>: <%=$game.player_2.hp%>/<%=Player::DEFAULT_HIT_POINTS%> HP
+<p><%=$game.player_1.name%>: <%=$game.player_1.hp%> HP</p>
+<p><%=$game.player_2.name%>: <%=$game.player_2.hp%> HP</p>
+<p>It's <%=$game.current_turn.name%>'s turn</p>
 <form action='/attack' method='get'>
 <div><input type='submit' value ='Attack'></div>
 </form>
