@@ -8,6 +8,7 @@ feature 'Switching turns' do
   scenario 'the game should switch turns after the current player has taken their move' do
     sign_in_and_play
     click_button 'Attack'
+    click_button 'OK'
     expect(page).not_to have_content "Ben's turn"
     expect(page).to have_content "Leonidas's turn"
   end
