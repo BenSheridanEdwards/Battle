@@ -4,6 +4,7 @@ feature 'Attack' do
 
     before(:each) do
       sign_in_and_play
+      allow(Kernel).to receive(:rand).and_return(10)
       click_button 'Attack'
     end
     scenario "show a confirmation message of the attack" do
@@ -38,8 +39,8 @@ feature 'Attack' do
     end
 
     scenario "reduce Player 1's HP by 10" do
-      click_button 'Attack'
-      click_button 'OK'
+      allow(Kernel).to receive(:rand).and_return(10)
+      attack_and_confirm
       expect(page).not_to have_content 'Ben: 60 HP'
       expect(page).to have_content 'Ben: 50 HP'
     end

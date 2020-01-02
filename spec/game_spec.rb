@@ -19,6 +19,7 @@ describe 'Game' do
 
   describe '#attack' do 
     it "should accept a player as an argument and reduce their HP by 10" do
+      allow(Kernel).to receive(:rand).and_return(10)
       expect{ game.attack(player_2) }.to change { player_2.hp }.by (-10)
     end
   end

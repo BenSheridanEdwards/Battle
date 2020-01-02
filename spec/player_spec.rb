@@ -15,6 +15,7 @@ describe 'Player' do
 
   describe '#receive_damage' do
     it "should reduce the player's HP by 10 when attacked" do
+      allow(Kernel).to receive(:rand).and_return(10)
       expect{ player_1.attack(player_2) }.to change { player_2.hp }.by (-10)
     end
   end
