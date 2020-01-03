@@ -6,19 +6,19 @@ describe 'Game' do
   let(:player_2) { Player.new("Leonidas") }
 
   describe '.player_1' do
-    it 'should return the first player' do 
+    it 'returns the first player' do 
       expect(game.player_1).to eq player_1
     end
   end
 
   describe '.player_2' do
-    it 'should return the second player' do 
+    it 'returns the second player' do 
       expect(game.player_2).to eq player_2
     end
   end
 
   describe '.attack' do 
-    it "should reduce a given player's HP by a random number (10)" do
+    it "reduces a given player's HP by a random number (10)" do
       allow(Kernel).to receive(:rand).and_return(10)
       expect{ game.attack(player_2) }.to change { player_2.hp }.by (-10)
     end
@@ -36,6 +36,22 @@ describe 'Game' do
     it 'finds the opponent of a given player' do
       expect(game.opponent_of(player_1)).to eq player_2
       expect(game.opponent_of(player_2)).to eq player_1
+    end
+  end
+
+  describe '.game_over?' do
+    it 'returns true if there are any players with HP at 0 or below' do
+      allow(Kernel).to receive(:rand).and_return(60)
+      game.attack(player_2)
+      expect(game.game_over?).to eq true
+    end
+  end
+
+  describe '.loser' do
+    it 'returns the player object of the first player to have a HP at 0 or below' do
+      allow(Kernel).to receive(:rand).and_return(60)
+      game.attack(player_2)
+      expect(game.loser).to eq player_2
     end
   end
 end
