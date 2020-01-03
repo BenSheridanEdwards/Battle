@@ -4,7 +4,7 @@
 <p><%=$game.player_1.name%>: <%=$game.player_1.hp%> HP</p>
 <p><%=$game.player_2.name%>: <%=$game.player_2.hp%> HP</p>
 <p>It's <%=$game.current_turn.name%>'s turn</p>
-<form action='/attack' method='get'>
+<form action='/attack' method='post'>
 <div><input type='submit' value ='Attack'></div>
 </form>
 </body>
