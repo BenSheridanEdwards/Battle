@@ -1,6 +1,9 @@
 require_relative './player'
 
 class Game
+
+  attr_reader :current_turn
+
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @current_turn = player_1
@@ -16,11 +19,6 @@ class Game
 
   def attack(player)
     player.receive_damage
-  end
-
-  def current_turn
-   player = @players.select { |player| player == @current_turn }
-   player[0]
   end
 
   def switch_turns
